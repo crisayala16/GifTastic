@@ -11,7 +11,7 @@ $(document).ready(function(){
 	//Displays the gifs for the topic that was clicked
 	$(document).on("click", ".animal-btn", function(){
 		var currentAnimal = $(this).text();
-		var queryUrl = "http://api.giphy.com/v1/gifs/search?q=" + currentAnimal + "&limit=10&rating=pg&api_key=dc6zaTOxFJmzC";
+		var queryUrl = "https://api.giphy.com/v1/gifs/search?q=" + currentAnimal + "&limit=10&rating=pg&api_key=dc6zaTOxFJmzC";
 		$("#gif-collection").html("");
 		$.ajax({
 			url: queryUrl,
