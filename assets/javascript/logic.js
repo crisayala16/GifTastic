@@ -1,10 +1,23 @@
 $(document).ready(function(){
 	var topics = ["dog", "cat", "fish", "bird", "lizard",
-	"lion", "tiger", "hippo", "octopus", "monkey", "turtle"];
+	"lion", "tiger", "hippo", "octopus", "monkey", "turtle",
+	 "frog", "spider", "jellyfish", "shark", "starfish"];
+	 var btnColor;
+	 var colorNumber = 0; 
+	 function buttonColorChange(){
+	 	if(colorNumber % 2 === 0){
+			btnColor = "danger";
+		}
+		else{
+			btnColor = "primary";
+		}
+	 }
 	//creates a button for each item in topics
 	for(var i = 0; i < topics.length; i++){
+		colorNumber = i;
+		buttonColorChange();
 		var currentBtn = topics[i];
-		var button = $("<button class='btn btn-primary animal-btn'>");
+		var button = $("<button class='btn btn-" + btnColor + " animal-btn'>");
 		button.text(topics[i]);
 		$("#topic-list").append(button);
 	}
@@ -48,8 +61,11 @@ $(document).ready(function(){
 	//add a new button through the input and submit button
 	$(document).on("click", "#submit-btn", function(){
 		newAnimal = $("#animal-input").val().trim();
-		var addButton = $("<button class='btn btn-primary animal-btn'>");
+		colorNumber++;
+		buttonColorChange();
+		var addButton = $("<button class='btn btn-" + btnColor + " animal-btn'>");
 		addButton.text(newAnimal);
+		$("#animal-input").val("");
 		$("#topic-list").append(addButton);
 	})
 

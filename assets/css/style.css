@@ -1,3 +1,6 @@
+body{
+	background: url(../images/foggy_birds.png);
+}
 #submit-btn{
 	display: block;
 	margin: 5px auto;
